@@ -2,6 +2,8 @@
 import { Box, Button, Stack, TextField } from "@mui/material";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import ChatModal from "./chatboxmodal";
+import Chatbox from "./gptchatbox";
 
 export default function Home() {
 
@@ -77,40 +79,9 @@ export default function Home() {
   }, [message]);
 
   return (
-    <Box width={`100vw`} height={`100vh`} display={"flex"} alignItems={`center`} justifyContent={`center`} flexDirection={`column`}>
-      <Stack direction={"column"} width="600px" height="700px" border={`1px solid black`} p={2} spacing={3}>
-        <Stack direction={"column"} spacing={2} flexGrow={1} overflow="auto" maxHeight={`100%`}>
-          {
-            messages.map((message, index) => (
-              <Box key={index} display={`flex`} justifyContent={message.role === 'assistant' ? "flex-start" : "flex-end"}>
-                <Box p={3} borderRadius={16} bgcolor={message.role === "assistant" ? "primary.main" : "secondary.main"} color={"white"}>
-                  {message.content}
-                </Box>
-              </Box>
-            ))
-          }
-          
-          {isTyping && (
-          <Box key={"Typing indicator"} display={`flex`} justifyContent={"flex-end"}>
-          <Box p={3} borderRadius={16} bgcolor={"secondary.main"} color={"grey.500"}>
-            Typing...
-          </Box>
-        </Box>
-        )}
-        </Stack>
-        <Stack direction={"row"} justifyContent={`flex-end`} spacing={2} >
-          <TextField
-            label="Type your message"
-            fullWidth
-            multiline
-            maxRows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <Button variant="contained" onClick={sendMessage}>Send</Button>
-        </Stack>
-        
-      </Stack>
-    </Box>
+    <>
+    <p> hello world</p>
+    <ChatModal/ >
+    </>
   );
 }
